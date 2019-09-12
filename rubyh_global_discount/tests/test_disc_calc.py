@@ -9,7 +9,7 @@ class TestDiscCalculation(TransactionCase):
         # PREPARE DATA
         self.currency_id = self.env.ref('base.IDR')
         self.company_id = self.env.ref('base.main_company')
-        self.parnter_id = self.env.ref('base.res_partner_1')
+        self.partner_id = self.env.ref('base.res_partner_1')
         
         # PREPARE OBJECT
         self.po_obj = self.env["purchase.order"]
@@ -21,7 +21,7 @@ class TestDiscCalculation(TransactionCase):
             "disc_method": "percent",
             "amount_untaxed": 5000,
             "disc_amount": 50,
-            "partned_id": self.parnter_id.id,
+            "partner_id": self.partner_id.id,
             "company_id": self.company_id.id,
             "currency_id": self.currency_id.id
         }
@@ -33,7 +33,7 @@ class TestDiscCalculation(TransactionCase):
             "disc_method": "fixed",
             "amount_untaxed": 10000,
             "disc_amount": 10,
-            "partned_id": self.parnter_id.id,
+            "partner_id": self.partner_id.id,
             "company_id": self.company_id.id,
             "currency_id": self.currency_id.id
         }
