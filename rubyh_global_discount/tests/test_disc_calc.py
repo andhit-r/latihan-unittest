@@ -41,16 +41,16 @@ class TestDiscCalculation(TransactionCase):
         return data
 
     def test_disc_installation_1(self):
-        data = self._prepare_po_data()
+        data = self._prepare_po_data_true()
         po_order = self._create_po_no_error(data)
-        self._check_disc_installation(po_order)
+        po_order._disc_calculation()
 
         return po_order
     
     def test_disc_installation_2(self):
         data = self._prepare_po_data_false()
         po_order = self._create_po_no_error(data)
-        self._check_disc_installation(po_order)
+        po_order._disc_calculation()
 
         return po_order
 
