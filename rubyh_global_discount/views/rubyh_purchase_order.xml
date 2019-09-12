@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="rubyh_purchase_order_form_view" model="ir.ui.view">
+            <field name="name">rubyh.purchase.order.form.view</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <field name="order_line" position="after">
+                    <group style="width:40%%">
+                        <field name="disc_method"/>
+                        <field name="disc_amount"/>
+                    </group>
+                </field>
+                <field name="amount_untaxed" position="after">
+                    <field name="disc_calc" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="rubyh_sale_order_form_view" model="ir.ui.view">
+            <field name="name">rubyh.sale.order.form.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="order_line" position="after">
+                    <group style="width:40%%">
+                        <field name="disc_method"/>
+                        <field name="disc_amount"/>
+                    </group>
+                </field>
+                <field name="amount_untaxed" position="after">
+                    <field name="disc_calc" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </field>
+            </field>
+        </record>
+        
+        <!-- comment temporary mario ardi -->
+        <!-- <record id="rubyh_account_invoice_supplier_form_view" model="ir.ui.view">
+            <field name="name">rubyh.account.invoice.supplier.form.view</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <field name="invoice_line_ids" position="after">
+                    <group style="width:40%%">
+                        <field name="disc_method"/>
+                        <field name="disc_amount"/>
+                    </group>
+                </field>
+                <field name="amount_untaxed" position="after">
+                    <field name="disc_calc" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </field>
+            </field>
+        </record> -->
+
+        <record id="rubyh_invoice_form" model="ir.ui.view">
+            <field name="name">rubyh.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="invoice_line_ids" position="after">
+                    <group style="width:40%%">
+                        <field name="disc_method"/>
+                        <field name="disc_amount"/>
+                    </group>
+                </field>
+                <field name="amount_untaxed" position="after">
+                    <field name="disc_calc" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="rubyh_view_company_form" model="ir.ui.view">
+            <field name="name">rubyh.view.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field
+                        name="sales_disc_acc_id"
+                        domain="['|',('internal_type','=', 'payable'), ('internal_type','=', 'receivable')]"
+                        options="{'no_open': True, 'no_create': True}"
+                    />
+                    <field
+                        name="purchase_disc_acc_id"
+                        domain="['|',('internal_type','=', 'payable'), ('internal_type','=', 'receivable')]"
+                        options="{'no_open': True, 'no_create': True}"
+                    />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
