@@ -5,7 +5,7 @@ class TestSaleOrderAmountAll(TransactionCase):
 
     def setUp(self):
         super(TestSaleOrderAmountAll, self).setUp()
-        self.partner_01 = self.env.ref('base.res_partner_10')
+        self.partner_01 = self.env.ref('base.res_partner_10').id
         self.product_01 = self.env.ref('product.product_product_13').id
 
     def test_amount_all(self):
