@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Global Discount",
-    'summary': """Global Discount Costumization for Purchase order, Sales order, and Vendor bills.""",
+    'summary': """Global Discount Costumization for Purchase order,
+               Sales order, and Vendor bills.""",
     'description': """
         This module manages the followings:
             - Purchase
@@ -15,8 +16,6 @@
         'base',
         'sale',
         'purchase',
-        # 'branch',
-        # if you want to use this for another program, change it to base, sale, purchase,
     ],
     'data': [
         'views/rubyh_purchase_order.xml',

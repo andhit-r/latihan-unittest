@@ -404,7 +404,6 @@ class RubyhAccountInvoice(models.Model):
             raise UserError(
                 _("Please set Discount Accounts if you use Global Discount!")
             )
-            return False
         return super(RubyhAccountInvoice, self).action_invoice_open()
 
     # LOAD DISCOUNT METHOD AND AMOUNT FROM SO
